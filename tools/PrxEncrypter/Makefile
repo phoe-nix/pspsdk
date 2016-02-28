@@ -24,18 +24,18 @@ RM = rm
 endif
 
 INCDIR = \
-	src \
-	src/zlib
+	src
+#	src/zlib
 
 OBJDIRS = \
-	$(OBJ) \
-	$(OBJ)/zlib
+	$(OBJ)
+#	$(OBJ)/zlib
 
 OBJS = \
 	$(OBJ)/crypto.o \
 	$(OBJ)/kirk_engine.o \
-	$(OBJ)/main.o \
-	$(OBJ)/zlib.a
+	$(OBJ)/main.o
+#	$(OBJ)/zlib.a
 
 CFLAGS = -O2
 
@@ -57,16 +57,16 @@ $(FINAL_TARGET): $(OBJS)
 	@echo Linking $@...
 	$(LD) $(LDFLAGS) $(OBJS) $(LIBS) -o $@
 
-$(OBJ)/zlib.a:  \
-	$(OBJ)/zlib/adler32.o \
-	$(OBJ)/zlib/compress.o \
-	$(OBJ)/zlib/crc32.o \
-	$(OBJ)/zlib/deflate.o \
-	$(OBJ)/zlib/inflate.o \
-	$(OBJ)/zlib/inftrees.o \
-	$(OBJ)/zlib/inffast.o \
-	$(OBJ)/zlib/trees.o \
-	$(OBJ)/zlib/zutil.o
+#$(OBJ)/zlib.a:  \
+#	$(OBJ)/zlib/adler32.o \
+#	$(OBJ)/zlib/compress.o \
+#	$(OBJ)/zlib/crc32.o \
+#	$(OBJ)/zlib/deflate.o \
+#	$(OBJ)/zlib/inflate.o \
+#	$(OBJ)/zlib/inftrees.o \
+#	$(OBJ)/zlib/inffast.o \
+#	$(OBJ)/zlib/trees.o \
+#	$(OBJ)/zlib/zutil.o
 
 $(OBJ)/%.o: src/%.c
 	@echo Compiling $<...
